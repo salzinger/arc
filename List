@@ -1,0 +1,79 @@
+Meeting ID: 2243529145
+pw:  967309
+
+
+Matthias:
+Meeting ID: 422 609 9534
+Password: 6626070
+
+
+Probe 25
+Impurity 33
+Linewidth [MHz]= 6.0
+Dipole Matrix Element [24P,25S]=-162.95
+Dipole Matrix Element [34P,33S]=75.20
+C_3 [33 S,25 S] = 0.012 GHz (mu m)^3	1.258 mu m
+C_3/sqrt(C_6)= 0.24169512994984593
+C_6 [25] = -0.002443 GHz (mu m)^6	0.861 mu m
+13.09 us : Lifetime of 25
+33.33 us : Lifetime of 33
+9.09 us : Lifetime of 25 with BB
+20.42 us : Lifetime of 33 with BB
+
+
+Probe 30
+Impurity 47
+Linewidth [MHz]= 6.0
+Dipole Matrix Element [29P,30S]=357.71
+Dipole Matrix Element [49P,47S]=-64.95
+C_3 [47 S,30 S] = 0.023 GHz (mu m)^3	1.557 mu m
+C_3/sqrt(C_6)= 0.1394565894849418
+C_6 [30] = -0.026385 GHz (mu m)^6	1.280 mu m
+24.27 us : Lifetime of 30
+105.66 us : Lifetime of 47
+15.47 us : Lifetime of 30 with BB
+53.05 us : Lifetime of 47 with BB
+
+
+Probe 31
+Impurity 45
+Linewidth [MHz]= 6.0
+Dipole Matrix Element [31P,31S]=-519.27
+Dipole Matrix Element [43P,45S]=86.07
+C_3 [45 S,31 S] = 0.044 GHz (mu m)^3	1.937 mu m
+C_3/sqrt(C_6)= 0.2173431359132797
+C_6 [31] = -0.040197 GHz (mu m)^6	1.373 mu m
+27.08 us : Lifetime of 31
+91.85 us : Lifetime of 45
+16.99 us : Lifetime of 31 with BB
+47.29 us : Lifetime of 45 with BB
+
+
+Probe 37
+Impurity 38
+Linewidth [MHz]= 6.0
+Dipole Matrix Element [37P,37S]=-762.61
+Dipole Matrix Element [37P,38S]=-744.37
+C_3 [38 S,37 S] = 0.553 GHz (mu m)^3	4.518 mu m
+C_3/sqrt(C_6)= 0.900541037432628
+C_6 [37] = -0.377739 GHz (mu m)^6	1.995 mu m
+48.61 us : Lifetime of 37
+53.04 us : Lifetime of 38
+28.04 us : Lifetime of 37 with BB
+30.17 us : Lifetime of 38 with BB
+
+
+Probe 38
+Impurity 39
+Linewidth [MHz]= 6.0
+Dipole Matrix Element [38P,38S]=807.70
+Dipole Matrix Element [38P,39S]=-788.32
+C_3 [39 S,38 S] = 0.621 GHz (mu m)^3	4.695 mu m
+C_3/sqrt(C_6)= 0.8549781643905418
+C_6 [38] = -0.527244 GHz (mu m)^6	2.109 mu m
+53.04 us : Lifetime of 38
+57.74 us : Lifetime of 39
+30.65 us : Lifetime of 38 with BB
+33.21 us : Lifetime of 39 with BB
+
+
