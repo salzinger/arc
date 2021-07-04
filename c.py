@@ -5,10 +5,12 @@ import numpy as np               # Import Numerical Python
 from IPython.core.display import display, HTML #Import HTML for formatting output
 
 # Define path to ARC root directory (for loading data)
-import sys, os
-rootDir = 'home/qd/Schreibtisch/arc' # e.g. '/Users/Username/Desktop/ARC-Alkali-Rydberg-Calculator'
+import sys
+import os
+
+rootDir = '/Users/Hamamatsu/anaconda3/Lib/site-packages/arc' # e.g. '/Users/Username/Desktop/ARC-Alkali-Rydberg-Calculator'
 sys.path.append(rootDir)
-os.chdir('arc')
+#os.chdir('arc')
 
 from arc import *                 #Import ARC (Alkali Rydberg Calculator)
 

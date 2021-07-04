@@ -1,14 +1,12 @@
 import matplotlib.pyplot as plt  # Import library for direct plotting functions
 import numpy             # Import Numerical Python
 from IPython.core.display import display, HTML #Import HTML for formatting output
+import sys
+import os
 
-# Define path to ARC root directory (for loading data)
-import sys, os
-rootDir = '/home/qd/anaconda3/lib/python3.5/site-packages/arc' # e.g. '/Users/Username/Desktop/ARC-Alkali-Rydberg-Calculator'
+rootDir = '/Users/Hamamatsu/anaconda3/Lib/site-packages/arc' # e.g. '/Users/Username/Desktop/ARC-Alkali-Rydberg-Calculator'
 sys.path.append(rootDir)
 #os.chdir('arc')
-
-
 
 from arc import *                 #Import ARC (Alkali Rydberg Calculator)
 
@@ -19,7 +17,7 @@ atom=Rubidium87()
 CList=[]
 nList=[]
 
-for np in range(40,70):
+for np in range(60,70):
 
   ni=np+2
   print("Probe", np)
