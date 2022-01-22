@@ -61,3 +61,94 @@ print("%.2f us : Lifetime of %.0f with BB" % (
 10 ** 6 * atom.getStateLifetime(np, 0, 0.5, temperature=300, includeLevelsUpTo=40), np))
 print("%.2f us : Lifetime of %.0f with BB" % (
 10 ** 6 * atom.getStateLifetime(ni, 0, 0.5, temperature=300, includeLevelsUpTo=40), ni))
+
+
+state1n = 5
+state1j = 1.5
+state1mj = 1.5
+
+state2n = 67
+state2j = 0.5
+state2mj = 0.5
+
+dme = atom.getDipoleMatrixElement(state1n, 1, state1j, state1mj, state2n, 2, 1.5, 1.5, 0)
+#dme1 = atom.getDipoleMatrixElement(ni, 0, 0.5, 0.5, pstate2n, 1, pstate2j, pstate2mj, 1)
+
+print(dme)
+
+freq = atom.getTransitionFrequency(5, 1, 1.5, 67, 0, 0.5)/2
+
+print("5p-67S", freq/10**12)
+
+freq = atom.getTransitionFrequency(5, 1, 1.5, 56, 0, 0.5)/2
+
+print("5p-56S", freq/10**12)
+
+freq = atom.getTransitionFrequency(5, 1, 1.5, 67, 0, 0.5)/2 - atom.getTransitionFrequency(5, 1, 1.5, 56, 0, 0.5)/2
+
+print("diff", freq/10**12)
+
+
+
+freq = atom.getTransitionFrequency(5, 1, 1.5, 67, 2, 0.5)/2
+
+print("5p-67D", freq/10**12)
+
+freq = atom.getTransitionFrequency(69, 0, 0.5, 67, 2, 0.5)
+
+print("69S-67D [GHz]", freq/10**9)
+
+
+freq = atom.getTransitionFrequency(67, 2, 0.5, 68, 1, 0.5)
+
+print("67D-68P [GHz]", freq/10**9)
+
+
+freq = atom.getTransitionFrequency(68, 1, 0.5, 66, 2, 0.5)
+
+print("68P-66D [GHz]", freq/10**9)
+
+freq = atom.getTransitionFrequency(66, 2, 0.5, 67, 1, 0.5)
+
+print("66D-67P [GHz]", freq/10**9)
+
+freq = atom.getTransitionFrequency(67, 1, 0.5, 67, 0, 0.5)
+
+print("67P-67S [GHz]", freq/10**9)
+
+freq = atom.getTransitionFrequency(67, 0, 0.5, 65, 2, 2.5)
+
+print("67S - 65D [GHz]", freq/10**9)
+
+
+freq = atom.getTransitionFrequency(67, 0, 0.5, 66, 1, 0.5)
+
+print("67S - 66P [GHz]", freq/10**9)
+
+
+
+dme = atom.getDipoleMatrixElement(67, 0, 0.5, 0.5, 67, 1, 1.5, 0.5, 0)/atom.getDipoleMatrixElement(56, 0, 0.5, 0.5, 56, 1, 0.5, 0.5, 0)
+
+freq = atom.getTransitionFrequency(67, 0, 0.5, 69, 0, 0.5)/2
+
+print("67S - 69S [GHz]", freq/10**9)
+
+print(dme)
+
+
+
+freq = atom.getTransitionFrequency(5, 1, 1.5, 68, 0, 0.5)/2
+
+print("5p-68S", freq/10**12)
+
+freq = atom.getTransitionFrequency(5, 1, 1.5, 56, 0, 0.5)/2
+
+print("5p-56S", freq/10**12)
+
+freq = atom.getTransitionFrequency(5, 1, 1.5, 68, 0, 0.5)/2 - atom.getTransitionFrequency(5, 1, 1.5, 56, 0, 0.5)/2
+
+print("diff", freq/10**12)
+
+freq = atom.getTransitionFrequency(69, 1, 1.5, 70, 0, 0.5)
+
+print("69p-70S", freq/10**9)
