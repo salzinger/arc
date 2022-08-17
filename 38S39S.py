@@ -16,7 +16,7 @@ np = 38
 ni = 39
 print("Probe", np)
 print("Impurity", ni)
-laserLinewidth = 0.006
+laserLinewidth = 0.001
 print("Linewidth [MHz]=", laserLinewidth * 1000)
 atom = Rubidium87()
 
@@ -39,7 +39,7 @@ print("Dipole Matrix Element [%.0fP,%.0fS]=%.2f" % (pstate1n, np, dme))
 print("Dipole Matrix Element [%.0fP,%.0fS]=%.2f" % (pstate2n, ni, dme1))
 c3 = 1 / (4.0 * pi * epsilon_0) * dme * dme1 * C_e ** 2 * \
      (physical_constants["Bohr radius"][0]) ** 2
-# print("C_3 = %.3f GHz (mu m)^3 " % (abs(c3)/C_h*1.e9  ))
+print("C_3 = %.3f GHz (mu m)^3 " % (abs(c3)/C_h*1.e9  ))
 blockade = (abs(abs(c3) / C_h * 1.e9 / laserLinewidth)) ** (1 / 3.)
 print("C_3 [%.0f S,%.0f S] = %.3f GHz (mu m)^3\t%.3f mu m" % (ni, np, abs(c3) / C_h * 1.e9, blockade))
 
@@ -52,6 +52,8 @@ print("C_3/sqrt(C_6)=", abs(c3) / C_h * 1.e9 / numpy.sqrt(abs(c6)))
 
 print("C_6 [%.0f] = %.6f GHz (mu m)^6\t%.3f mu m" % (np, c6, blockade))
 
+
+
 print("%.2f us : Lifetime of %.0f" % (
 10 ** 6 * atom.getStateLifetime(np, 0, 0.5, temperature=0, includeLevelsUpTo=40), np))
 print("%.2f us : Lifetime of %.0f" % (
@@ -61,6 +63,12 @@ print("%.2f us : Lifetime of %.0f with BB" % (
 10 ** 6 * atom.getStateLifetime(np, 0, 0.5, temperature=300, includeLevelsUpTo=40), np))
 print("%.2f us : Lifetime of %.0f with BB" % (
 10 ** 6 * atom.getStateLifetime(ni, 0, 0.5, temperature=300, includeLevelsUpTo=40), ni))
+
+
+print("%.2f us : Lifetime of %.0f with BB" % (
+10 ** 6 * atom.getStateLifetime(69, 0, 0.5, temperature=300, includeLevelsUpTo=80), 69))
+print("%.2f us : Lifetime of %.0f with BB" % (
+10 ** 6 * atom.getStateLifetime(69, 0, 0.5, temperature=300, includeLevelsUpTo=80), 69))
 
 
 state1n = 5

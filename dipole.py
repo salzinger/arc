@@ -50,19 +50,31 @@ lmax=1  #Maxmium l
 
 
 
-print("to 5p to 5p")
-print(atom.getTransitionFrequency(5, 1, 1.5, 5, 1, 0.5)/(10**9))
+#print("to 5p to 5p")
+#print(atom.getTransitionFrequency(5, 1, 1.5, 5, 1, 0.5)/(10**9))
 #print("to 49S")
 #print(atom.getTransitionFrequency(5, 1, 1.5, 49, 0, 0.5)/(2*10**12))
-for n in range(58,59):
-	print("to %.0f S - to %.0f P " %(n,n))
+for n in range(55, 55):
+	print("to %.0f S - to %.0f P mf=3/2" %(n,n))
 	print(atom.getTransitionFrequency(n, 0, 0.5, n, 1, 1.5)/10**9)
+	print("to %.0f S - to %.0f P mf=1/2  " %(n,n))
+	print(atom.getTransitionFrequency(n, 0, 0.5, n, 1, 0.5)/10**9)
+	print("to %.0f S - to %.0f P mf=-3/2" %(n,n))
+	print(atom.getTransitionFrequency(n, 0, 0.5, n, 1, -1.5)/10**9)
+	print("to %.0f S - to %.0f P mf=-1/2  " %(n,n))
+	print(atom.getTransitionFrequency(n, 0, 0.5, n, 1, -0.5)/10**9)
 	#print((atom.getTransitionFrequency(n, 0, 0.5, n, 1, 0.5)-atom.getTransitionFrequency(n+1, 1, 0.5, n+2, 0, 0.5))/10**9)
-	print("to %.0f P - to %.0f S " %(n,n+1))
+	print("to %.0f P - to %.0f S mf=1/2" %(n,n+1))
 	print(atom.getTransitionFrequency(n, 1, 0.5, n+1, 0, 0.5)/10**9)
+	print("to %.0f P - to %.0f S mf=3/2" %(n,n+1))
+	print(atom.getTransitionFrequency(n, 1, 1.5, n+1, 0, 0.5)/10**9)
+	print("to %.0f P - to %.0f S mf=-1/2" %(n,n+1))
+	print(atom.getTransitionFrequency(n, 1, -0.5, n+1, 0, 0.5)/10**9)
+	print("to %.0f P - to %.0f S mf=-3/2" %(n,n+1))
+	print(atom.getTransitionFrequency(n, 1, -1.5, n+1, 0, 0.5)/10**9)
 
-print("to 50p to 500s")
-print(3*10**8 * 10**6/atom.getTransitionFrequency(50, 1, 1.5, 500, 0, 0.5))
+#print("to 50p to 500s")
+#print(3*10**8 * 10**6/atom.getTransitionFrequency(50, 1, 1.5, 500, 0, 0.5))
 
 
 #print("%.2e Hz" % (1/(2*pi*atom.getStateLifetime(5,1,1.5))) )
@@ -90,62 +102,99 @@ n1=5
 l1=1
 j1=1.5
 mj1=1.5
-n2=48
+n2=38
 l2=0
 j2=0.5
 mj2=0.5
 #Laser Parameters
-waist = 60.e-6 
-P = 5*10**(-3) 
-q=-1; 
+waist = (2.3*(4*2.1))*10**(-6)
+P = 29*10**(-6)
+q=-1
 
-#rabiFreq = atom.getRabiFrequency(n1, l1, j1, mj1,
-#                                 n2, l2, j2,
-#                                 q, P, waist)
-#print("Control Rabi Frequency = 2 pi x %.2f MHz" %(rabiFreq/(2*pi)*1e-6))
+rabiFreq = atom.getRabiFrequency(n1, l1, j1, mj1,
+                                 n2, l2, j2,
+                                 q, P, waist)
+print("Control Rabi Frequency = 2 pi x %.2f MHz" %(rabiFreq/(2*pi)*1e-6))
 
 waist = 3*10**(-3)
-P = 20*10**(-6) 
+P = 3.5*10**(-6)
 
-q=1; 
+q=1
 
-#rabiFreq = atom.getRabiFrequency(5, 0, 0.5, 0.5,
-#                                 5, 1, 1.5,
-#                                 q, P, waist)
-#print("Probe Rabi Frequency = 2 pi x %.2f MHz" %(rabiFreq/(2*pi)*1e-6))
-
+rabiFreq = atom.getRabiFrequency(5, 0, 0.5, 0.5,
+                                 5, 1, 1.5,
+                                 q, P, waist)
+print("Probe Rabi Frequency = 2 pi x %.2f MHz" %(rabiFreq/(2*pi)*1e-6))
+'''
 laserLinewidth = 0.0022
-dme = atom.getDipoleMatrixElement(48, 0, 0.5, 0.5, 48, 1, 1.5, 1.5, +1)
+
+dme = atom.getDipoleMatrixElement(56, 0, 0.5, 0.5, 56, 1, 1.5, 1.5, 1)
 #dme1 = atom.getDipoleMatrixElement(48, 0, 0.5, 0.5,49, 0, 0.5, 0.5, +1)
-#print(dme)
+#print("Dipole Matrix Element 56S 56P", dme)
 #print(dme1)
 c3  = 1/(4.0*pi*epsilon_0)*dme*dme*C_e**2*\
                 (physical_constants["Bohr radius"][0])**2 
-print("C_3 = %.3f GHz (mu m)^3 " % (abs(c3)/C_h*1.e9  ))
+print("56S56P C_3 = %.3f GHz (mu m)^3 " % (abs(c3)/C_h*1.e9  ))
+
+dme = atom.getDipoleMatrixElement(55, 0, 0.5, 0.5, 56, 1, 1.5, 1.5, 1)
+#dme1 = atom.getDipoleMatrixElement(48, 0, 0.5, 0.5,49, 0, 0.5, 0.5, +1)
+#print("Dipole Matrix Element 56S 56P", dme)
+#print(dme1)
+c3  = 1/(4.0*pi*epsilon_0)*dme*dme*C_e**2*\
+                (physical_constants["Bohr radius"][0])**2
+print("56P55S C_3 = %.3f GHz (mu m)^3 " % (abs(c3)/C_h*1.e9  ))
+
 blockade = (abs(abs(c3)/C_h*1.e9/laserLinewidth))**(1/3.)
-print("C_3 [48s,48p] = %.0f GHz (mu m)^3\t%.1f mu m" % (abs(c3)/C_h*1.e9,blockade))
+print("C_3 [48s,48p] = %.0f GHz (mu m)^3\t%.1f mu m" % (abs(c3)/C_h*1.e9, blockade))
+
+
+
+    def R_3(self):
+        return (2 * self.C_3 * self.gamma_eg / (self.Omega_c ** 2 + self.gamma_eg * self.gamma_gR)) ** (1 / 3)
+
+    def R_6(self):
+        return (2 * self.C_6 * self.gamma_eg / (self.Omega_c ** 2 + self.gamma_eg * self.gamma_gR)) ** (1 / 6)
+
+    def V_bl_3(self):
+        return 4 / 3 * np.pi * self.R_3() ** 3
+
+    def V_bl_6(self):
+        return 4 / 3 * np.pi * self.R_6() ** 3
+'''
+
 
 laserLinewidth = 0.0022
-dme = atom.getDipoleMatrixElement(49, 0, 0.5, 0.5, 48, 1, 1.5, 1.5, 1)
-#dme1 = atom.getDipoleMatrixElement(38, 0, 0.5, 0.5, 37, 1, 1.5, 1.5, 1)
-#print(dme)
-#print(dme1)
-c3  = 1/(4.0*pi*epsilon_0)*dme*dme*C_e**2*\
+dme = atom.getDipoleMatrixElement(38, 0, 0.5, 0.5, 38, 1, 1.5, 1.5, 1)
+dme1 = atom.getDipoleMatrixElement(39, 0, 0.5, 0.5, 38, 1, 1.5, 1.5, 1)
+print(dme)
+print(dme1)
+c3  = 1/(4.0*pi*epsilon_0)*dme*dme1*C_e**2*\
                 (physical_constants["Bohr radius"][0])**2 
 print("C_3 = %.3f GHz (mu m)^3 " % (abs(c3)/C_h*1.e9  ))
 blockade = (abs(abs(c3)/C_h*1.e9/laserLinewidth))**(1/3.)
-print("C_3 [49s,48p] = %.0f GHz (mu m)^3\t%.3f mu m" % (abs(c3)/C_h*1.e9,blockade))
+print("C_3 [38S,39S] = %.0f GHz (mu m)^3\t%.3f mu m" % (abs(c3)/C_h*1.e9,blockade))
+
+print("EIT linewidth: ", (1*10**6)**2 / (10**6*np.sqrt((6*10**6) * (6*10**6 + 100*10**3)) )  )
+
+print("EITblock38S39S: ", (2 *  (abs(c3)/C_h*1.e9  ) * (6*10**(-3)) / ((1*10**(-3)) ** 2 + (6*10**(-3))*(100*10**(-6)))) ** (1 / 3))
 
 
-calculation1 = PairStateInteractions(Rubidium87(), 67, 0, 0.5, 67, 0, 0.5, 0.5, 0.5)
+calculation1 = PairStateInteractions(Rubidium87(), 38, 0, 0.5, 38, 0, 0.5, 0.5, 0.5)
 c6 = calculation1.getC6perturbatively(0,0, 5, 55e9)
 blockade = (abs(c6/laserLinewidth))**(1/6.)
-print("C_6 [67s] = %.6f GHz (mu m)^6\t%.3f mu m" % (c6,blockade))
+print("C_6 [38S,38S] = %.6f GHz (mu m)^6\t%.3f mu m" % (c6, blockade))
 
-calculation1 = PairStateInteractions(Rubidium87(), 48, 0, 0.5, 48, 0, 0.5, 0.5, 0.5)
+
+calculation1 = PairStateInteractions(Rubidium87(), 38, 0, 0.5, 39, 0, 0.5, 0.5, 0.5)
 c6 = calculation1.getC6perturbatively(0,0, 15, 55e9)
 blockade = (abs(c6/laserLinewidth))**(1/6.)
-print("C_6 [48s] = %.6f GHz (mu m)^6\t%.3f mu m" % (c6,blockade))
+print("C_6 [38S,39S] = %.6f GHz (mu m)^6\t%.3f mu m" % (c6,blockade))
+
+
+print("EITblock38S39S: ", (2 * (abs(c6) ) * (6*10**(-3)) / ((1*10**(-3)) ** 2 + (6*10**(-3))*(100*10**(-6)))) ** (1 / 6))
+
+
+'''
 
 calculation1 = PairStateInteractions(Rubidium87(), 49, 0, 0.5, 49, 0, 0.5, 0.5, 0.5)
 c6 = calculation1.getC6perturbatively(0,0, 15, 55e9)
@@ -163,8 +212,8 @@ print("%.2e Hz : Decay Rate of 5P3/2" % (1/(2*pi*atom.getStateLifetime(5,1,1.5, 
 
 print("%.2e Hz : Decay Rate of 5P1/2" % (1/(2*pi*atom.getStateLifetime(5,1,0.5, temperature=50*10**(-6), includeLevelsUpTo=10))) )
 print("%.2e Hz : Decay Rate of 39S" % (1/(2*pi*atom.getStateLifetime(39,0,0.5, temperature=50*10**(-6), includeLevelsUpTo=40))) )
+'''
+print("%.2e us : Lifetime of 38S"% (10**6 *atom.getStateLifetime(38,0,0.5, temperature=300, includeLevelsUpTo=45)) )
 
-print("%.2e us : Lifetime of 38S"% (10**6 *atom.getStateLifetime(38,0,0.5, temperature=300, includeLevelsUpTo=40)) )
-
-print("%.2e us : Lifetime of 39S"% (10**6 *atom.getStateLifetime(39,0,0.5, temperature=50*10**(-6), includeLevelsUpTo=40)) )
+print("%.2e us : Lifetime of 39S"% (10**6 *atom.getStateLifetime(39,0,0.5, temperature=300, includeLevelsUpTo=45)) )
 
