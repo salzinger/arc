@@ -193,6 +193,7 @@ print("C_6 [38S,39S] = %.6f GHz (mu m)^6\t%.3f mu m" % (c6,blockade))
 
 print("EITblock38S39S: ", (2 * (abs(c6) ) * (6*10**(-3)) / ((1*10**(-3)) ** 2 + (6*10**(-3))*(100*10**(-6)))) ** (1 / 6))
 
+#density next! blockade volume , blockaded atoms, absorption per blockade volume
 
 '''
 
