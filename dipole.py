@@ -186,19 +186,19 @@ print("C_6 [38S,38S] = %.6f GHz (mu m)^6\t%.3f mu m" % (c6, blockade))
 
 
 calculation1 = PairStateInteractions(Rubidium87(), 38, 0, 0.5, 39, 0, 0.5, 0.5, 0.5)
-c6 = calculation1.getC6perturbatively(0,0, 15, 55e9)
+c6 = calculation1.getC6perturbatively(0, 0, 15, 55e9)
 blockade = (abs(c6/laserLinewidth))**(1/6.)
-print("C_6 [38S,39S] = %.6f GHz (mu m)^6\t%.3f mu m" % (c6,blockade))
+print("C_6 [38S,39S] = %.6f GHz (mu m)^6\t%.3f mu m" % (c6, blockade))
 
 
-print("EITblock38S39S: ", (2 * (abs(c6) ) * (6*10**(-3)) / ((1*10**(-3)) ** 2 + (6*10**(-3))*(100*10**(-6)))) ** (1 / 6))
+print("EITblock38S39S: ", (2 * abs(c6) * (6*10**(-3)) / ((1*10**(-3)) ** 2 + (6*10**(-3))*(100*10**(-6)))) ** (1 / 6))
 
 
 
-print("EITblockVolume38S39S: ", 4*np.pi/3*(2 * (abs(c6) ) * (6*10**(-3)) / ((1*10**(-3)) ** 2 + (6*10**(-3))*(100*10**(-6)))) ** (3 / 6))
+print("EITblockVolume38S39S: ", 4*np.pi/3*(2 * abs(c6) * (6*10**(-3)) / ((1*10**(-3)) ** 2 + (6*10**(-3))*(100*10**(-6)))) ** (3 / 6))
 
 
-print("EITblockGroundstateAtoms38S39S: ", 0.174*4*np.pi/3*(2 * (abs(c6) ) * (6*10**(-3)) / ((1*10**(-3)) ** 2 + (6*10**(-3))*(100*10**(-6)))) ** (3 / 6))
+print("EITblockGroundstateAtoms38S39S: ", 0.174*4*np.pi/3*(2 * abs(c6) * (6*10**(-3)) / ((1*10**(-3)) ** 2 + (6*10**(-3))*(100*10**(-6)))) ** (3 / 6))
 
 
 #tCam and absorption per blockade volume
