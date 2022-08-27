@@ -108,7 +108,7 @@ j2=0.5
 mj2=0.5
 #Laser Parameters
 waist = (2.3*(4*2.1))*10**(-6)
-P = 29*10**(-6)
+P = 365*10**(-6)
 q=-1
 
 rabiFreq = atom.getRabiFrequency(n1, l1, j1, mj1,
@@ -163,7 +163,7 @@ print("C_3 [48s,48p] = %.0f GHz (mu m)^3\t%.1f mu m" % (abs(c3)/C_h*1.e9, blocka
 '''
 
 
-laserLinewidth = 0.0022
+laserLinewidth = 0.165*10**(-3)
 dme = atom.getDipoleMatrixElement(38, 0, 0.5, 0.5, 38, 1, 1.5, 1.5, 1)
 dme1 = atom.getDipoleMatrixElement(39, 0, 0.5, 0.5, 38, 1, 1.5, 1.5, 1)
 print(dme)
@@ -172,7 +172,7 @@ c3  = 1/(4.0*pi*epsilon_0)*dme*dme1*C_e**2*\
                 (physical_constants["Bohr radius"][0])**2 
 print("C_3 = %.3f GHz (mu m)^3 " % (abs(c3)/C_h*1.e9  ))
 blockade = (abs(abs(c3)/C_h*1.e9/laserLinewidth))**(1/3.)
-print("C_3 [38S,39S] = %.0f GHz (mu m)^3\t%.3f mu m" % (abs(c3)/C_h*1.e9,blockade))
+print("C_3 [38S,39S] = %.3f GHz (mu m)^3\t%.3f mu m" % (abs(c3)/C_h*1.e9, blockade))
 
 print("EIT linewidth: ", (1*10**6)**2 / (10**6*np.sqrt((6*10**6) * (6*10**6 + 100*10**3)) )  )
 
@@ -201,7 +201,7 @@ print("EITblockVolume38S39S: ", 4*np.pi/3*(2 * abs(c6) * (6*10**(-3)) / ((1*10**
 print("EITblockGroundstateAtoms38S39S: ", 0.174*4*np.pi/3*(2 * abs(c6) * (6*10**(-3)) / ((1*10**(-3)) ** 2 + (6*10**(-3))*(100*10**(-6)))) ** (3 / 6))
 
 
-#tCam and absorption per blockade volume
+#tCam=5us and absorption per blockade volume
 
 '''
 
