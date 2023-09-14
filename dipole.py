@@ -1,19 +1,21 @@
 import matplotlib.pyplot as plt  # Import library for direct plotting functions
 import numpy as np               # Import Numerical Python
-from IPython.core.display import display, HTML #Import HTML for formatting output
+#from IPython.core.display import display, HTML #Import HTML for formatting output
+from scipy.constants import physical_constants, epsilon_0
 
+pi=np.pi
 # Define path to ARC root directory (for loading data)
 # Define path to ARC root directory (for loading data)
 import sys
 import os
 
-rootDir = '/Users/Hamamatsu/anaconda3/Lib/site-packages/arc' # e.g. '/Users/Username/Desktop/ARC-Alkali-Rydberg-Calculator'
-sys.path.append(rootDir)
-#os.chdir('arc')
+#rootDir = 'C:/Users/zenoo/Desktop/ARC-Alkali-Rydberg-Calculator-3.3.0/' # e.g. '/Users/Username/Desktop/ARC-Alkali-Rydberg-Calculator'
+#sys.path.append(rootDir)
+#os.chdir('C:/Users/zenoo/Desktop/ARC-Alkali-Rydberg-Calculator-3.3.0/arc')
 
 
 
-from arc import *                 #Import ARC (Alkali Rydberg Calculator)
+from arc import *         #Import ARC (Alkali Rydberg Calculator)
 
 
 atom=Rubidium87()
@@ -164,8 +166,8 @@ print("C_3 [48s,48p] = %.0f GHz (mu m)^3\t%.1f mu m" % (abs(c3)/C_h*1.e9, blocka
 
 
 laserLinewidth = 0.165*10**(-3)
-dme = atom.getDipoleMatrixElement(38, 0, 0.5, 0.5, 38, 1, 1.5, 1.5, 1)
-dme1 = atom.getDipoleMatrixElement(39, 0, 0.5, 0.5, 38, 1, 1.5, 1.5, 1)
+dme = atom.getDipoleMatrixElement(56, 0, 0.5, 0.5, 55, 1, 1.5, 1.5, 1)
+dme1 = atom.getDipoleMatrixElement(56, 0, 0.5, 0.5, 55, 1, 1.5, 1.5, 1)
 print(dme)
 print(dme1)
 c3  = 1/(4.0*pi*epsilon_0)*dme*dme1*C_e**2*\

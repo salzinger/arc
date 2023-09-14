@@ -1,6 +1,6 @@
 import matplotlib.pyplot as plt  # Import library for direct plotting functions
 import numpy             # Import Numerical Python
-from IPython.core.display import display, HTML #Import HTML for formatting output
+#from IPython.core.display import display, HTML #Import HTML for formatting output
 
 # Define path to ARC root directory (for loading data)
 # Define path to ARC root directory (for loading data)
@@ -9,8 +9,8 @@ import os
 
 
 
-rootDir = '/Users/Hamamatsu/anaconda3/Lib/site-packages/arc' # e.g. '/Users/Username/Desktop/ARC-Alkali-Rydberg-Calculator'
-sys.path.append(rootDir)
+#rootDir = '/Users/Hamamatsu/anaconda3/Lib/site-packages/arc' # e.g. '/Users/Username/Desktop/ARC-Alkali-Rydberg-Calculator'
+#sys.path.append(rootDir)
 
 
 

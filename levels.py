@@ -4,16 +4,16 @@
 
 import matplotlib.pyplot as plt  # Import library for direct plotting functions
 import numpy as np  # Import Numerical Python
-from IPython.core.display import display, HTML  # Import HTML for formatting output
+#from IPython.core.display import display, HTML  # Import HTML for formatting output
 
 # Define path to ARC root directory (for loading data)
 import sys, os
 # Define path to ARC root directory (for loading data)
-import sys
-import os
+#import sys
+#import os
 
-rootDir = '/Users/Hamamatsu/anaconda3/Lib/site-packages/arc'  # e.g. '/Users/Username/Desktop/ARC-Alkali-Rydberg-Calculator'
-sys.path.append(rootDir)
+#rootDir = '/Users/Hamamatsu/anaconda3/Lib/site-packages/arc'  # e.g. '/Users/Username/Desktop/ARC-Alkali-Rydberg-Calculator'
+#sys.path.append(rootDir)
 # os.chdir('arc')
 from arc import *  # Import ARC (Alkali Rydberg Calculator)
 
@@ -37,8 +37,8 @@ atom = Rubidium87()
 # calculation.showPlot()
 
 
-calculation1 = PairStateInteractions(atom, 69, 0, 0.5, 69, 0, 0.5, 0.5, 0.5, interactionsUpTo=1)
-calculation1.defineBasis(0., 0., 4, 4, 30e9, progressOutput=True)
+calculation1 = PairStateInteractions(atom, 56, 0, 0.5, 56, 1, 1.5, 1.5, 0.5, interactionsUpTo=1)
+calculation1.defineBasis(0., 0., 4, 4, 30e8, progressOutput=True)
 calculation1.diagonalise(np.linspace(1, 15, 28), 200, progressOutput=True)
 
 calculation1.plotLevelDiagram()

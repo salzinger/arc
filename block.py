@@ -2,19 +2,20 @@
 
 import matplotlib.pyplot as plt  # Import library for direct plotting functions
 import numpy as np               # Import Numerical Python
-from IPython.core.display import display, HTML #Import HTML for formatting output
-
+#from IPython.core.display import display, HTML #Import HTML for formatting output
+pi=np.pi
 # Define path to ARC root directory (for loading data)
 import sys, os
 # Define path to ARC root directory (for loading data)
 import sys
 import os
 
-rootDir = '/Users/Hamamatsu/anaconda3/Lib/site-packages/arc' # e.g. '/Users/Username/Desktop/ARC-Alkali-Rydberg-Calculator'
-sys.path.append(rootDir)
+#rootDir = '/Users/Hamamatsu/anaconda3/Lib/site-packages/arc' # e.g. '/Users/Username/Desktop/ARC-Alkali-Rydberg-Calculator'
+#sys.path.append(rootDir)
 #os.chdir('arc')
 
 from arc import *                 #Import ARC (Alkali Rydberg Calculator)
+from scipy.constants import epsilon_0, physical_constants
 
 atom=Rubidium87()
 
