@@ -166,6 +166,13 @@ print("C_3 [48s,48p] = %.0f GHz (mu m)^3\t%.1f mu m" % (abs(c3)/C_h*1.e9, blocka
 
 
 laserLinewidth = 0.165*10**(-3)
+
+dme = atom.getDipoleMatrixElement(61, 0, 0.5, 0.5, 61, 1, 1.5, 1.5, 1)
+dme1 = atom.getDipoleMatrixElement(56, 0, 0.5, 0.5, 55, 1, 1.5, 1.5, 1)
+print("61s61p dme", dme)
+print(dme1)
+
+
 dme = atom.getDipoleMatrixElement(56, 0, 0.5, 0.5, 55, 1, 1.5, 1.5, 1)
 dme1 = atom.getDipoleMatrixElement(56, 0, 0.5, 0.5, 55, 1, 1.5, 1.5, 1)
 print(dme)
@@ -227,4 +234,6 @@ print("%.2e Hz : Decay Rate of 39S" % (1/(2*pi*atom.getStateLifetime(39,0,0.5, t
 print("%.2e us : Lifetime of 38S"% (10**6 *atom.getStateLifetime(38,0,0.5, temperature=300, includeLevelsUpTo=45)) )
 
 print("%.2e us : Lifetime of 39S"% (10**6 *atom.getStateLifetime(39,0,0.5, temperature=300, includeLevelsUpTo=45)) )
+
+print("Quantum defect 5s: ",atom.getQuantumDefect(5, 1, 0))
 

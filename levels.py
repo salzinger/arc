@@ -43,11 +43,12 @@ calculation1.diagonalise(np.linspace(1, 15, 28), 200, progressOutput=True)
 
 calculation1.plotLevelDiagram()
 
+'''
 for j in range(0, 200):
     for l in range(1, 15):
         if calculation1.highlight[l][j] > 0.3:
             print(calculation1.composition[l][j], "radius:", l, "N of eigenvector:", j, calculation1.highlight[l][j])
-
+'''
 print("C3 from level diagram:")
 calculation1.getC3fromLevelDiagram(1, 15, showPlot=True, minStateContribution=0.0, resonantBranch=1)
 print("C6 from level diagram:")
@@ -57,10 +58,11 @@ calculation1.ax.set_xlim(1.0, 26.0)
 calculation1.ax.set_ylim(-1.0, 1.0)
 calculation1.showPlot(interactive=True)
 
+'''
 print("C6 from perturbation theory:")
 c6 = calculation1.getC6perturbatively(0, 0, 4, 30e9)
 print(c6)
-
+'''
 laserLinewidth = 0.001  # in GHz
 nList = np.arange(0, 5)
 c6List = []
